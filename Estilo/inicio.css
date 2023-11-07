@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Nunito', sans-serif;
+    background: #F4F4F4;
+}
+h1{
+    text-align: center;
+    padding: 25px;
+    font-size: 50px;
+    color: rgb(8, 0, 255);
+}
+
+h2{
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: normal;
+    color: rgb(122, 122, 122)
+}
+
+.container{
+    width: 800px;
+    background: rgb(210, 209, 207);
+    padding: 20px;
+    margin: auto;
+}
+
+.labelAcceso{
+    text-align: center;
+    outline: none;
+    color: rgb(0, 47, 255);
+    text-decoration: none ;
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.botones{
+    display: flex;
+}
+
+.entrar{
+    background: rgb(21, 255, 0);
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.salir{
+    background: rgb(255, 81, 0);
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
