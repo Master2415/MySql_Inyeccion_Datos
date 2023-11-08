@@ -12,49 +12,58 @@
 
 <body>
 
-    <h1 class="text-center p-2">CRUD EXPENDIO</h1>
+    <h1 class="text-center p-2">Meats Master</h1>
 
     <div class="container">
         <div class="row">
-            <form class="col-3">
+            <form class="col-3" method="POST">
 
                 <h2 class="text-center">Productos</h2>
 
+
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Codigo</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" name="codigo">
                 </div>
 
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Nombre del producto</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" name="nombreProducto">
                 </div>
 
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Tipo de producto</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" name="tipoProducto">
                 </div>
 
                 <div class="mb-1">
-                    <label for="exampleInputEmail1" class="form-label">Cantidad de ingreso</label>
-                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="exampleInputEmail1" class="form-label">Cantidad de ingreso *Kg</label>
+                    <input type="number" step="0.01" class="form-control" name="cantProducto">
                 </div>
 
                 <div class="mb-1">
-                    <label for="precio" class="form-label">Precio del producto</label>
-                    <input type="number" step="0.01" class="form-control" id="precio" aria-describedby="precioHelp">
+                    <label for="precio" class="form-label">Precio del producto *Kg</label>
+                    <input type="number" step="0.01" class="form-control" name="precioProducto">
                 </div>
 
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Fecha de ingreso</label>
-                    <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="date" class="form-control" name="fechaIngreso">
                 </div>
 
                 <div class="container">
                     <div class="boton text-center mt-5 mb-3">
-                        <button type="IngresarProducto" class="btn btn-primary">Ingresar Producto</button>
+                        <button type="IngresarProducto" class="btn btn-primary" name="btnRegistroProducto" value="ok">Ingresar Producto</button>
                     </div>
                 </div>
+
+                <?php
+
+                include "../../modelo/conexion.php";
+                include "../../controlador/Producto/registroProducto.php";
+
+                ?>
+
             </form>
 
             <div class="row col-9 p-3">
@@ -64,8 +73,8 @@
                             <th scope="col">Codigo</th>
                             <th scope="col">Tipo</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Precio</th>
+                            <th scope="col">Cantidad Kg</th>
+                            <th scope="col">Precio Kg</th>
                             <th scope="col">Fecha de ingreso</th>
                             <th scope="col"></th>
                         </tr>
@@ -74,6 +83,7 @@
                     <tbody>
 
                         <?php
+
                         include "../../modelo/conexion.php";
                         $sql = $conexion->query("select * from producto");
                         if (!$sql) {
@@ -89,7 +99,7 @@
                                 <td><?= $datos->precio ?></td>
                                 <td><?= $datos->fechaIngreso ?></td>
                                 <td>
-                                    <a href="" class="btn btn-small btn-warning"><i class="fas fa-newspaper"></i></a>
+                                    <a href="modificar.php?codigo=<?= $datos->idProducto ?>" class="btn btn-small btn-warning"><i class="fas fa-newspaper"></i></a>
                                     <a href="" class="btn btn-small btn-danger"><i class="fas fa-delete-left"></i></a>
                                 </td>
                             </tr>

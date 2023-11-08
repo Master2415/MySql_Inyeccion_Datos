@@ -43,7 +43,7 @@
     </script>
 
 
-    <footer>
+    <footer class="text-center">
         <p>Douglas Tabarquino &copy; 2023</p>
     </footer>
 </body>
