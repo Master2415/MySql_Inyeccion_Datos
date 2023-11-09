@@ -27,7 +27,7 @@
 
     <div class="container">
         <div class="botones">
-            <a class="entrar" href="Vista/Producto/producto.php">Entrar</a>
+            <a class="entrar" href="Vista/Cliente/cliente.php">Entrar</a>
             <a class="salir" href="">Salir</a>
         </div>
     </div>
