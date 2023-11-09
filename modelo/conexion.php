@@ -15,7 +15,3 @@ if (!$conexion) {
 
 // Cerramos la conexión a la base de datos utilizando la función mysqli_close
 //mysqli_close($conexion);
-?>
-
-
-

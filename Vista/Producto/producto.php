@@ -7,19 +7,22 @@
     <title>Inventario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/06d08e46aa.js" crossorigin="anonymous"></script>
-
 </head>
 
-<body>
+<body style="background-color: #B6B6B6; color: #343a40;">
 
-    <h1 class="text-center p-2">Meats Master</h1>
+    <h1 class="text-center p-3" style="color: #C20000;">Meats Master</h1>
+    <?php
+    include "../../modelo/conexion.php";
+    include "../../controlador/Producto/eliminarProducto.php";
+    ?>
 
     <div class="container">
         <div class="row">
-            <form class="col-3" method="POST">
 
-                <h2 class="text-center">Productos</h2>
+            <form class="col-md-3" method="POST" style="background-color: #E6E6E6; color: #343a40;">
 
+                <h2 class="text-center mt-5 mb-10" style="color: #007bff;">Producto</h2>
 
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Codigo</label>
@@ -27,13 +30,20 @@
                 </div>
 
                 <div class="mb-1">
-                    <label for="exampleInputEmail1" class="form-label">Nombre del producto</label>
-                    <input type="text" class="form-control" name="nombreProducto">
+                    <label for="tipoProducto" class="form-label">Tipo de producto</label>
+                    <select class="form-select" name="tipoProducto" id="tipoProducto" required>
+                        <option value="" disabled selected>Selecciona un tipo</option>
+                        <option value="Res">Res</option>
+                        <option value="Cerdo">Cerdo</option>
+                        <option value="Pollo">Pollo</option>
+                        <option value="Embutido">Embutido</option>
+                        <option value="Otro">Otro</option>
+                    </select>
                 </div>
 
                 <div class="mb-1">
-                    <label for="exampleInputEmail1" class="form-label">Tipo de producto</label>
-                    <input type="text" class="form-control" name="tipoProducto">
+                    <label for="exampleInputEmail1" class="form-label">Nombre del producto</label>
+                    <input type="text" class="form-control" name="nombreProducto">
                 </div>
 
                 <div class="mb-1">
@@ -58,15 +68,12 @@
                 </div>
 
                 <?php
-
-                include "../../modelo/conexion.php";
                 include "../../controlador/Producto/registroProducto.php";
-
                 ?>
 
             </form>
 
-            <div class="row col-9 p-3">
+            <div class="col-md-9" style="background-color: #E6E6E6; color: #343a40;">
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -83,8 +90,11 @@
                     <tbody>
 
                         <?php
+                        // Mostrar los daros en la tabla
 
                         include "../../modelo/conexion.php";
+
+                        // Realizo una consulta para mostrar todo los productos
                         $sql = $conexion->query("select * from producto");
                         if (!$sql) {
                             die("Error en la consulta SQL: " . $conexion->error);
@@ -100,7 +110,12 @@
                                 <td><?= $datos->fechaIngreso ?></td>
                                 <td>
                                     <a href="modificar.php?codigo=<?= $datos->idProducto ?>" class="btn btn-small btn-warning"><i class="fas fa-newspaper"></i></a>
-                                    <a href="" class="btn btn-small btn-danger"><i class="fas fa-delete-left"></i></a>
+                                    <?php
+                                    //<a href="producto.php?codigo=<?= $datos->idProducto  " class="btn btn-small btn-danger"><i class="fas fa-delete-left"></i></a>
+                                    ?>
+                                    <a href="#" class="btn btn-small btn-danger" onclick="confirmarEliminar(<?= $datos->idProducto ?>)"><i class="fas fa-delete-left"></i></a>
+
+
                                 </td>
                             </tr>
 

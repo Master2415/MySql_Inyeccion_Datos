@@ -2,7 +2,6 @@
 
 if (!empty($_POST["btnModificarProducto"])) {
     if (
- 
         !empty($_POST['nombreProducto']) and
         !empty($_POST['tipoProducto']) and
         !empty($_POST['cantProducto']) and
@@ -16,7 +15,7 @@ if (!empty($_POST["btnModificarProducto"])) {
         $precio = $_POST['precioProducto'];
         $fecha = $_POST['fechaIngreso'];
 
-        $sql=$conexion->query("update producto set 
+        $sql = $conexion->query("update producto set 
         nombre= '$nombre', 
         tipoProducto='$tipo', 
         cantidadStock= '$cant', 
@@ -25,14 +24,13 @@ if (!empty($_POST["btnModificarProducto"])) {
         
         where idProducto=$codigo ");
 
-        if($sql == 1){
+        if ($sql == 1) {
             header(("location: producto.php"));
-        }else{
+        } else {
             echo "<div class = 'alert alert-danger'>Error al modificar el producto </div> ";
         }
-
-
     } else {
         echo "<div class = 'alert alert-warning'>¡Debes llenas todos los campos!</div> ";
     }
 }
+?>

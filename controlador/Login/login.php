@@ -22,4 +22,3 @@ $numero_registros = mysqli_num_rows($resultado);
 		echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
 	}
 }
-?>

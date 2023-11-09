@@ -36,25 +36,28 @@ $sql = $conexion->query("select * from producto where idProducto=$codigo")
 
             <h2 class="text-center">Modificar producto</h2>
 
-            <input type="hidden" name="codigo" value="<?= $_GET["codigo"]?>">
+            <input type="hidden" name="codigo" value="<?= $_GET["codigo"] ?>">
 
             <?php
 
             while ($datos = $sql->fetch_object()) { ?>
 
+
                 <div class="mb-1">
-                    <label for="exampleInputEmail1" class="form-label">Codigo</label>
-                    <input type="text" class="form-control" name="codigo" value="<?= $datos->idProducto ?>">
+                    <label for="tipoProducto" class="form-label">Tipo de producto</label>
+                    <select class="form-select" name="tipoProducto" id="tipoProducto" required>
+                        <option value="" disabled selected>Selecciona un tipo</option>
+                        <option value="Res">Res</option>
+                        <option value="Cerdo">Cerdo</option>
+                        <option value="Pollo">Pollo</option>
+                        <option value="Embutido">Embutido</option>
+                        <option value="Otro">Otro</option>
+                    </select>
                 </div>
 
                 <div class="mb-1">
                     <label for="exampleInputEmail1" class="form-label">Nombre del producto</label>
                     <input type="text" class="form-control" name="nombreProducto" value="<?= $datos->nombre ?>">
-                </div>
-
-                <div class="mb-1">
-                    <label for="exampleInputEmail1" class="form-label">Tipo de producto</label>
-                    <input type="text" class="form-control" name="tipoProducto" value="<?= $datos->tipoProducto ?>">
                 </div>
 
                 <div class="mb-1">
@@ -74,7 +77,8 @@ $sql = $conexion->query("select * from producto where idProducto=$codigo")
 
             <?php }
 
-                include "../../controlador/Producto/modificarProducto.php";
+            // Modifico el producto
+            include "../../controlador/Producto/modificarProducto.php";
 
             ?>
 

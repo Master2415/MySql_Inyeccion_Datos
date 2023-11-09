@@ -20,12 +20,12 @@ if (!empty($_POST['btnRegistroProducto'])) {
 
         // Insertamos los datos en la base de datos
         $sql = "INSERT INTO producto (idProducto, tipoProducto, nombre, cantidadStock, precio, fechaIngreso) 
-        values ('$codigo', '$nombre', '$tipo', '$cant', '$precio', '$fecha')";
-        
+        values ('$codigo', '$tipo', '$nombre','$cant', '$precio', '$fecha')";
+
         $resultado = mysqli_query($conexion, $sql);
         if ($resultado) {
             // Iserción correcta
-            echo "¡Se insertaron los datos correctamente!";
+           //  echo "<div class = 'alert alert-success'>¡Se insertaron los datos correctamente!";
         } else {
             // Iserción fallida
             echo "¡No se puede insertar la informacion!" . "<br>";
@@ -35,3 +35,4 @@ if (!empty($_POST['btnRegistroProducto'])) {
         echo "<div class = 'alert alert-warning'>¡Debes llenas todos los campos!</div> ";
     }
 }
+?>
