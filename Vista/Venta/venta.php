@@ -4,50 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario</title>
+    <title>Inventario - Meats Master</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/06d08e46aa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-mQAftX0A4JKbhIdVUfhDzjxY51P0p2+Xk44mPGoJM4MywWOaCiqIfyFy4s1wABrS" crossorigin="anonymous" />
 </head>
 
 <body style="background-color: #B6B6B6; color: #343a40;">
 
-    <h1 class="text-center p-3" style="color: #C20000;">Meats Master</h1>
-    <?php
-    include "../../modelo/conexion.php";
-    include "../../controlador/Venta/eliminarVenta.php";
-    ?>
-
     <div class="container">
-        <div class="row">
+        <header class="text-center p-3" style="color: #C20000;">
+            <h1>Meats Master</h1>
+            <h2><i class="fas fa-cubes"></i> Gestion de Inventario</h2>
+        </header>
 
+        <h2 id="Fecha"></h2>
+
+        <div class="row mt-4">
             <form class="col-md-3" method="POST" style="background-color: #E6E6E6; color: #343a40;">
 
                 <h2 class="text-center mt-5 mb-10" style="color: #007bff;">Venta</h2>
 
-                <div class="mb-1">
-                    <label for="exampleInputEmail1" class="form-label">Codigo</label>
-                    <input type="text" class="form-control" name="idVenta">
+                <div class="mb-3">
+                    <label for="idVenta" class="form-label">Codigo</label>
+                    <input type="text" class="form-control" name="idVenta" required>
                 </div>
 
-                <div class="mb-1">
-                    <label for="precio" class="form-label">Total venta</label>
-                    <input type="number" step="0.01" class="form-control" name="total">
+                <div class="mb-3">
+                    <label for="total" class="form-label">Total venta</label>
+                    <input type="number" step="0.01" class="form-control" name="total" required>
                 </div>
 
-                <div class="mb-1">
-                    <label for="exampleInputEmail1" class="form-label">Fecha</label>
-                    <input type="date" class="form-control" name="fecha">
+                <div class="mb-3">
+                    <label for="fecha" class="form-label">Fecha</label>
+                    <input type="date" class="form-control" name="fecha" required>
                 </div>
 
-                <div class="mb-1">
-                    <label for="exampleInputEmail1" class="form-label">Cedula del cliente</label>
-                    <input type="text" class="form-control" name="cedula">
+                <div class="mb-3">
+                    <label for="cedula" class="form-label">Cedula del cliente</label>
+                    <input type="text" class="form-control" name="cedula" required>
                 </div>
 
-                <div class="container">
-                    <div class="boton text-center mt-5 mb-3">
-                        <button type="submit" class="btn btn-primary" name="btnRegistroVenta" value="ok">Ingresar Venta</button>
-                    </div>
+                <div class="mb-3 text-center">
+                    <button type="submit" class="btn btn-primary" name="btnRegistroVenta" value="ok">Ingresar Venta</button>
                 </div>
 
                 <?php
@@ -55,7 +53,6 @@
                 ?>
 
             </form>
-
 
             <div class="col-md-9" style="background-color: #E6E6E6; color: #343a40;">
                 <table class="table table-striped table-hover">
@@ -65,17 +62,17 @@
                             <th scope="col">Total del venta</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Cedula cliente</th>
-                            <th scope="col"></th>
+                            <th scope="col">Acciones</th>
                         </tr>
                     </thead>
 
                     <tbody>
 
                         <?php
-                        // Mostrar los daros en la tabla
+                        // Mostrar los datos en la tabla
                         include "../../modelo/conexion.php";
 
-                        // Realizo una consulta para mostrar todo las ventas
+                        // Realizar una consulta para mostrar todas las ventas
                         $sql = $conexion->query("SELECT * FROM venta");
 
                         if (!$sql) {
@@ -88,13 +85,10 @@
                                 <td><?= $datos->total ?></td>
                                 <td><?= $datos->fecha ?></td>
                                 <td><?= $datos->Cliente_Persona_cedula ?></td>
-
                                 <td>
-                                    <a href="modificar.php?idVenta=<?= $datos->idVenta ?>" class="btn btn-small btn-warning"><i class="fas fa-newspaper"></i></a>
-                                    <?php
-                                    //<a href="producto.php?codigo=<?= $datos->idProducto  " class="btn btn-small btn-danger"><i class="fas fa-delete-left"></i></a>
-                                    ?>
-                                    <a href="#" class="btn btn-small btn-danger" onclick="confirmarEliminar(<?= $datos->idVenta ?>)"><i class="fas fa-delete-left"></i></a>
+                                    <a href="../DetalleVenta/DetalleVenta.php?idVenta=<?= $datos->idVenta ?>" class="btn btn-info me-2"><i class="fas fa-info-circle"></i> Detalle</a>
+                                    <a href="modificar.php?idVenta=<?= $datos->idVenta ?>" class="btn btn-warning me-2"><i class="fas fa-edit"></i> </a>
+                                    <a href="#" class="btn btn-danger" onclick="confirmarEliminar(<?= $datos->idVenta ?>)"><i class="fas fa-trash"></i> </a>
                                 </td>
                             </tr>
 
@@ -107,7 +101,19 @@
         </div>
     </div>
 
+    <footer class="text-center mt-5">
+        <p>Douglas Tabarquino &copy; 2023</p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        // Muestra la fecha en pantalla
+        setInterval(() => {
+            let fecha = new Date();
+            let fechaHora = fecha.toLocaleString();
+            document.getElementById("Fecha").textContent = fechaHora;
+        }, 1000);
+    </script>
 
 </body>
 

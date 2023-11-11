@@ -61,3 +61,6 @@
 //(controlador/venta/registroVenta)
         $sqlInsertPersona = "INSERT INTO venta (idVenta, total, fecha,  Cliente_Persona_cedula) 
         VALUES ('$codigo', '$total', '$fecha', '$cedula')";
+
+//elimino un dato de la tabla, este mismo paso se realiza para producto, cliente y venta
+    $sql = $conexion->query("DELETE FROM cliente WHERE Persona_cedula = $cedula");
