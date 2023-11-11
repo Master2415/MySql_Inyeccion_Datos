@@ -24,6 +24,8 @@ if (!empty($_POST["btnModificarCliente"])) {
         $sql = $conexion->query("UPDATE cliente c
         JOIN persona p ON c.Persona_cedula = p.cedula
         SET 
+            p.nombre = '$nombre',
+            p.apellido = '$apellido',
             p.Ciudad_idCiudad = '$ciudad', 
             p.correo = '$correo', 
             p.direccion = '$direccion', 

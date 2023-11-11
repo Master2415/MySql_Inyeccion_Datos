@@ -39,3 +39,25 @@
 
 // elimina de la tabla 'persona'
     $sqlPersona = $conexion->query("DELETE FROM persona WHERE cedula = $cedula");
+
+// Realizo una consulta para mostrar todo las ventas
+// (vista/venta/venta.php)
+        $sql = $conexion->query("SELECT * FROM venta");
+
+// Consulta basica para mostrar la informacion de un codigo de venta en especifico
+// (Vista/venta/modificar)
+        $sql = $conexion->query("SELECT * FROM Venta  WHERE idVenta= $codigo")
+
+// Actualizo la venta mediante si identificacion con update 
+// (controlador/venta/modificacionVenta)
+
+        $sql = $conexion->query("UPDATE venta set 
+        total = '$total', 
+        fecha = '$fecha', 
+        Cliente_Persona_cedula = '$cedula' 
+        WHERE idVenta = $idVenta");
+
+// Insertamos los datos en la tabla venta
+//(controlador/venta/registroVenta)
+        $sqlInsertPersona = "INSERT INTO venta (idVenta, total, fecha,  Cliente_Persona_cedula) 
+        VALUES ('$codigo', '$total', '$fecha', '$cedula')";

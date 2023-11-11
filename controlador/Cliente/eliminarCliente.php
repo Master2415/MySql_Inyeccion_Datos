@@ -1,7 +1,7 @@
 <script>
     function confirmarEliminar(cedula) {
         var confirmacion = confirm("¿Está seguro de eliminar este cliente?");
-        
+
         if (confirmacion) {
             window.location.href = "cliente.php?eliminar=" + cedula;
         }

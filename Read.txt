@@ -1,1 +1,5 @@
-1. Podemos eliminar al clinete pero dejarlo en persona, agregregando una columna "descripcion"
+Cosas para implementar luego
+
+1. Eliminar al cliente pero dejarlo en persona, agregregando una columna "descripcion" para saber de que tipo de perosna se trataba
+2. Lanzar una exepcion en caso de que el cliente este viculado a una venta.
+3. Se deberia implementar un autoincrementable en todas las tablas de tipo id...
