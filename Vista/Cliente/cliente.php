@@ -14,7 +14,7 @@
     <h1 class="text-center p-3" style="color: #C20000;">Meats Master</h1>
     <?php
     include "../../modelo/conexion.php";
-    include "../../controlador/Producto/eliminarProducto.php";
+    include "../../controlador/Cliente/eliminarCliente.php";
     ?>
 
     <div class="container">
@@ -105,7 +105,7 @@
                         // Mostrar los daros en la tabla
                         include "../../modelo/conexion.php";
 
-                        // Realizo una consulta para mostrar todo los productos
+                        // Realizo una consulta para mostrar todo los clientes
                         $sql = $conexion->query("SELECT persona.nombre, persona.apellido, persona.cedula, ciudad.nombre AS ciudad, persona.correo, persona.direccion, persona.Telefono_numero
                         FROM cliente
                         JOIN persona ON cliente.Persona_cedula = persona.cedula
@@ -131,8 +131,6 @@
                                     //<a href="producto.php?codigo=<?= $datos->idProducto  " class="btn btn-small btn-danger"><i class="fas fa-delete-left"></i></a>
                                     ?>
                                     <a href="#" class="btn btn-small btn-danger" onclick="confirmarEliminar(<?= $datos->cedula ?>)"><i class="fas fa-delete-left"></i></a>
-
-
                                 </td>
                             </tr>
 

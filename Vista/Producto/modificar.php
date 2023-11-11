@@ -3,7 +3,7 @@
 include "../../modelo/conexion.php";
 
 $codigo = $_GET["codigo"];
-
+// su funcion es mostrar los datos ya registrados en el campo de texto
 $sql = $conexion->query("select * from producto where idProducto=$codigo")
 
 ?>

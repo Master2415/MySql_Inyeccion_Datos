@@ -1,0 +1,41 @@
+// Hago uso de JOIN para combinar la tabla cliente y persona en funcion de la siguiente relacion
+// c.Persona_cedula = p.cedula
+// con el fin de actualizar las columnas de la tabla persona desde el cliente, se modifica como tal el cliente 
+// modificarCliente.php (controlador/cliente)
+
+        $sql = $conexion->query("UPDATE cliente c
+        JOIN persona p ON c.Persona_cedula = p.cedula
+        SET 
+            p.Ciudad_idCiudad = '$ciudad', 
+            p.correo = '$correo', 
+            p.direccion = '$direccion', 
+            p.Telefono_numero = '$telefono'
+        WHERE c.Persona_cedula = $cedula");
+
+// combino ambas tablas con el fin de mostrar los datos ya registrados en el campo de texto
+// haciendo uso de JOIN
+// modificar.php (Vista/Cliente)
+
+        $sql = $conexion->query("SELECT cliente.*, persona.* FROM cliente
+        JOIN persona ON cliente.Persona_cedula = persona.cedula
+        WHERE cliente.Persona_cedula = $cedula")
+
+// Realizo una consulta para mostrar todo los clientes
+// Uso JOIN para conectar el cliente de la persona
+
+        $sql = $conexion->query("SELECT persona.nombre, persona.apellido, persona.cedula, ciudad.nombre AS ciudad, persona.correo, persona.direccion, persona.Telefono_numero
+        FROM cliente
+        JOIN persona ON cliente.Persona_cedula = persona.cedula
+        JOIN ciudad ON persona.Ciudad_idCiudad = ciudad.idCiudad");
+
+// su funcion es mostrar los datos ya registrados en el campo de texto del modificacion del producto
+// consulta basica (vista/producto)
+        
+        $sql = $conexion->query("select * from producto where idProducto=$codigo")
+
+//elimino de la tabla cliente mas no de la tabla persona
+// (controlador/cliente/elimnarCliente)
+    $sql = $conexion->query("DELETE FROM cliente WHERE Persona_cedula = $cedula");
+
+// elimina de la tabla 'persona'
+    $sqlPersona = $conexion->query("DELETE FROM persona WHERE cedula = $cedula");

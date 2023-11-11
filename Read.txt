@@ -1,0 +1,1 @@
+1. Podemos eliminar al clinete pero dejarlo en persona, agregregando una columna "descripcion"
