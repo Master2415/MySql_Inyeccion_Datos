@@ -11,6 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/06d08e46aa.js" crossorigin="anonymous"></script>
+
+    <style>
+        .btn-menu {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,15 +30,13 @@
         <h2 id="Fecha"></h2>
 
         <div class="row mt-4">
-            <div class="col-md-6 offset-md-3">
-                <a class="btn btn-primary btn-block mb-3" href="Vista/Producto/producto.php"><i class="fas fa-box"></i> Productos</a>
-                <a class="btn btn-success btn-block mb-3" href="Vista/Cliente/cliente.php"><i class="fas fa-users"></i> Clientes</a>
-                <a class="btn btn-info btn-block mb-3" href="Vista/Venta/venta.php"><i class="fas fa-cash-register"></i> Ventas</a>
-
+            <div class="col-md-4 offset-md-4">
+                <a class="btn btn-danger btn-menu" href="Vista/Producto/producto.php"><i class="fas fa-box"></i> Productos</a>
+                <a class="btn btn-danger btn-menu" href="Vista/Cliente/cliente.php"><i class="fas fa-users"></i> Clientes</a>
+                <a class="btn btn-danger btn-menu" href="Vista/Venta/venta.php"><i class="fas fa-cash-register"></i> Ventas</a>
+                <a class="btn btn-danger btn-menu" href="Vista/DetalleVenta/DetalleVenta.php"><i class="fas fa-cash-register"></i> Detalles de Ventas</a> 
             </div>
         </div>
-
-
     </div>
 
     <footer class="text-center mt-5">

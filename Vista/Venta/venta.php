@@ -86,7 +86,7 @@
                                 <td><?= $datos->fecha ?></td>
                                 <td><?= $datos->Cliente_Persona_cedula ?></td>
                                 <td>
-                                    <a href="../DetalleVenta/DetalleVenta.php?idVenta=<?= $datos->idVenta ?>" class="btn btn-info me-2"><i class="fas fa-info-circle"></i> Detalle</a>
+                                    <a href="../DetalleVenta/detVenta.php?idVenta=<?= $datos->idVenta ?>" class="btn btn-info me-2"><i class="fas fa-info-circle"></i> Detalle</a>
                                     <a href="modificar.php?idVenta=<?= $datos->idVenta ?>" class="btn btn-warning me-2"><i class="fas fa-edit"></i> </a>
                                     <a href="#" class="btn btn-danger" onclick="confirmarEliminar(<?= $datos->idVenta ?>)"><i class="fas fa-trash"></i> </a>
                                 </td>

@@ -127,9 +127,14 @@
 
                     </tbody>
                 </table>
+                
             </div>
+            <a class="btn btn-warning btn-menu" href="pdf.php"><i class="fa-regular fa-file-pdf"></i> Generar</a>
         </div>
+            
     </div>
+
+
 
     <footer class="text-center mt-5">
         <p>Douglas Tabarquino &copy; 2023</p>
