@@ -11,18 +11,23 @@
 
 <body style="background-color: #B6B6B6; color: #343a40;">
 
-    <div class="container-fluid p-5 text-center">
-        <h1 class="text-center" style="color: #C20000;">Meats Master</h1>
-        <h2></h2>
-    </div>
 
-    <?php
-    include "../../modelo/conexion.php";
-    include "../../controlador/DetalleVenta/eliminarDetalle.php";
-    ?>
+<div class="container-fluid" style="padding: 10px;">
 
-    <div class="container mt-4">
-        <div class="row">
+
+        <header class="text-center p-3" style="color: #C20000;">
+            <h1>Meats Master</h1>
+            <h2></h2>
+        </header>
+
+        <h2 id="Fecha"></h2>
+
+        <?php
+        include "../../modelo/conexion.php";
+        include "../../controlador/DetalleVenta/eliminarDetalle.php";
+        ?>
+
+        <div class="row mt-3">  
 
             <form class="col-md-3 bg-light p-3" method="POST">
 
@@ -129,8 +134,19 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <footer class="text-center mt-5">
+        <p>Douglas Tabarquino &copy; 2023</p>
+    </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        // Muestra la fecha en pantalla
+        setInterval(() => {
+            let fecha = new Date();
+            let fechaHora = fecha.toLocaleString();
+            document.getElementById("Fecha").textContent = fechaHora;
+        }, 1000);
+    </script>
 </body>
 
 </html>

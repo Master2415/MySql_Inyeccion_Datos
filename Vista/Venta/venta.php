@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventario - Meats Master</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-mQAftX0A4JKbhIdVUfhDzjxY51P0p2+Xk44mPGoJM4MywWOaCiqIfyFy4s1wABrS" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/06d08e46aa.js" crossorigin="anonymous"></script>
 </head>
 
 <body style="background-color: #B6B6B6; color: #343a40;">
@@ -14,7 +14,7 @@
     <div class="container">
         <header class="text-center p-3" style="color: #C20000;">
             <h1>Meats Master</h1>
-            <h2><i class="fas fa-cubes"></i> Gestion de Inventario</h2>
+            <h2></h2>
         </header>
 
         <h2 id="Fecha"></h2>
@@ -54,7 +54,7 @@
 
             </form>
 
-            <div class="col-md-9" style="background-color: #E6E6E6; color: #343a40;">
+            <div class="col-md-9 bg-light p-3">
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -62,7 +62,7 @@
                             <th scope="col">Total del venta</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Cedula cliente</th>
-                            <th scope="col">Acciones</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
 

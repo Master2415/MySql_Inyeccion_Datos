@@ -11,14 +11,20 @@
 
 <body style="background-color: #B6B6B6; color: #343a40;">
 
-    <h1 class="text-center p-3" style="color: #C20000;">Meats Master</h1>
-    <?php
-    include "../../modelo/conexion.php";
-    include "../../controlador/Producto/eliminarProducto.php";
-    ?>
+        <div class="container">
+        <header class="text-center p-3" style="color: #C20000;">
+            <h1>Meats Master</h1>
+            <h2></h2>
+        </header>
 
-    <div class="container">
-        <div class="row">
+        <h2 id="Fecha"></h2>
+    
+        <?php                       
+        include "../../controlador/Producto/eliminarProducto.php";
+        ?>
+    
+
+    <div class="row mt-4">
 
             <form class="col-md-3" method="POST" style="background-color: #E6E6E6; color: #343a40;">
 
@@ -73,7 +79,7 @@
 
             </form>
 
-            <div class="col-md-9" style="background-color: #E6E6E6; color: #343a40;">
+            <div class="col-md-9 bg-light p-3">
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -91,7 +97,6 @@
 
                         <?php
                         // Mostrar los daros en la tabla
-
                         include "../../modelo/conexion.php";
 
                         // Realizo una consulta para mostrar todo los productos
@@ -114,8 +119,6 @@
                                     //<a href="producto.php?codigo=<?= $datos->idProducto  " class="btn btn-small btn-danger"><i class="fas fa-delete-left"></i></a>
                                     ?>
                                     <a href="#" class="btn btn-small btn-danger" onclick="confirmarEliminar(<?= $datos->idProducto ?>)"><i class="fas fa-delete-left"></i></a>
-
-
                                 </td>
                             </tr>
 
@@ -128,8 +131,19 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <footer class="text-center mt-5">
+        <p>Douglas Tabarquino &copy; 2023</p>
+    </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        // Muestra la fecha en pantalla
+        setInterval(() => {
+            let fecha = new Date();
+            let fechaHora = fecha.toLocaleString();
+            document.getElementById("Fecha").textContent = fechaHora;
+        }, 1000);
+    </script>
 </body>
 
 </html>
