@@ -11,16 +11,9 @@ class PDF extends FPDF
         // Movernos a la derecha
         $this->Cell(55);
         // Título
-        $this->Cell(90, 10, 'Reporte de productos', 0, 0, 'C');
+        $this->Cell(90, 10, 'Reporte de Ventas - Meats Master', 0, 0, 'C');
         // Salto de línea
-        $this->Ln(10);
-        // Subtítulo en rojo
-        $this->SetTextColor(255, 0, 0);
-        $this->Cell(0, 10, 'Meats Master', 0, 1, 'C');
-        // Restaurar color de texto
-        $this->SetTextColor(0, 0, 0);
-        // Salto de línea
-        $this->Ln(10);
+        $this->Ln(20);
     }
 
     // Pie de página
@@ -45,31 +38,28 @@ $pdf->SetFillColor(255, 255, 255); // Establecer el color de fondo de las celdas
 $pdf->SetFont('Arial', 'B', 12);
 
 // Cabecera de la tabla
-$pdf->Cell(15, 10, 'Codigo', 1, 0, 'C', true);
-$pdf->Cell(20, 10, 'Tipo', 1, 0, 'C', true);
-$pdf->Cell(30, 10, 'Nombre', 1, 0, 'C', true);
-$pdf->Cell(30, 10, 'Cantidad Kg', 1, 0, 'C', true);
-$pdf->Cell(25, 10, 'Precio Kg', 1, 0, 'C', true);
-$pdf->Cell(40, 10, 'Fecha de ingreso', 1, 1, 'C', true);
+$pdf->Cell(20, 10, 'Codigo', 1, 0, 'C', true);
+$pdf->Cell(30, 10, 'Total venta', 1, 0, 'C', true);
+$pdf->Cell(30, 10, 'Fecha', 1, 0, 'C', true);
+$pdf->Cell(30, 10, 'Cedula cliente', 1, 1, 'C', true);
 
 // Contenido de la tabla
 $pdf->SetFont('Arial', '', 12);
 include "../../modelo/conexion.php";
 
-// Realizar la consulta para mostrar todos los productos
-$sql = $conexion->query("select * from producto");
+// Realizar la consulta para mostrar todas las ventas
+$sql = $conexion->query("SELECT * FROM venta");
+
 if (!$sql) {
     die("Error en la consulta SQL: " . $conexion->error);
 }
 
 while ($datos = $sql->fetch_object()) {
     // Contenido de cada fila
-    $pdf->Cell(15, 10, $datos->idProducto, 1);
-    $pdf->Cell(20, 10, $datos->tipoProducto, 1);
-    $pdf->Cell(30, 10, utf8_decode($datos->nombre), 1);
-    $pdf->Cell(30, 10, $datos->cantidadStock, 1);
-    $pdf->Cell(25, 10, $datos->precio, 1);
-    $pdf->Cell(40, 10, $datos->fechaIngreso, 1);
+    $pdf->Cell(20, 10, $datos->idVenta, 1);
+    $pdf->Cell(30, 10, $datos->total, 1);
+    $pdf->Cell(30, 10, $datos->fecha, 1);
+    $pdf->Cell(30, 10, $datos->Cliente_Persona_cedula, 1);
     $pdf->Ln(); // Nueva línea para la siguiente fila
 }
 

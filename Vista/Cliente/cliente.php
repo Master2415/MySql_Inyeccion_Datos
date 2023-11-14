@@ -146,6 +146,7 @@
                     </tbody>
                 </table>
             </div>
+            <a class="btn btn-warning btn-menu" href="clientePdf.php"><i class="fa-regular fa-file-pdf"></i> Generar</a>
         </div>
     </div>
     

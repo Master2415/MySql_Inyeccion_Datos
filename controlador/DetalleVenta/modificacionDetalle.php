@@ -27,7 +27,7 @@ if (!empty($_POST['btnModificarDetalleVenta'])) {
             WHERE codigoDetalle = $codigoDetalle");
 
         if ($sql==1) {
-            header("location: detVenta.php");
+            header("location: detalleVenta.php");
         } else {
             echo "<div class='alert alert-danger'>Error al modificar el detalle de venta</div>";
         }

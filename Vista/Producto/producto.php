@@ -19,7 +19,8 @@
 
         <h2 id="Fecha"></h2>
     
-        <?php                       
+        <?php         
+        include "../../modelo/conexion.php";              
         include "../../controlador/Producto/eliminarProducto.php";
         ?>
     

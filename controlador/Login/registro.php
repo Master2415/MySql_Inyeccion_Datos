@@ -1,6 +1,6 @@
 <?php
 // Se utiliza para llamar al archivo que contine la conexion a la base de datos
-require '../modelo/conexion.php';
+require '../../modelo/conexion.php';
 
 // Validamos que el formulario y que el boton registro haya sido presionado
 if(isset($_POST['registro'])) {
@@ -16,6 +16,11 @@ $resultado = mysqli_query($conexion,$sql);
 	if($resultado) {
 		// Iserción correcta
 		echo "¡Se insertaron los datos correctamente!";
+		echo "<script>
+                setTimeout(function() {
+                    window.location.href = '../../index.php';
+                }, 2000);
+              </script>";
 	} else {
 		// Iserción fallida
 		echo "¡No se puede insertar la informacion!"."<br>";

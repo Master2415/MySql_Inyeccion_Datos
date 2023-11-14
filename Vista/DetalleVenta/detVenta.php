@@ -78,7 +78,7 @@
                             <th scope="col">Nombre Cliente</th>
                             <th scope="col">Apellido</th>
                             <th scope="col">Fecha Venta</th>
-                            <th scope="col"></th>
+                            
                         </tr>
                     </thead>
 
@@ -131,10 +131,8 @@
                                 <td><?= $datos->apellido ?></td>
                                 <td><?= $datos->fecha ?></td>
 
-                                <td>
-                                    <a href="modificar.php?codigoDetalle=<?= $datos->codigoDetalle ?>" class="btn btn-small btn-warning"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-danger" onclick="confirmarEliminar(<?= $datos->codigoDetalle ?>)"><i class="fas fa-trash"></i></a>
-                                </td>
+                                
+
                             </tr>
 
                         <?php }
@@ -143,6 +141,7 @@
                     </tbody>
                 </table>
             </div>
+            <a class="btn btn-warning btn-menu" href="detVentaPdf.php"><i class="fa-regular fa-file-pdf"></i> Generar</a>
         </div>
     </div>
 

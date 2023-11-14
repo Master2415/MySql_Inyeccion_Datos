@@ -1,49 +1,46 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
-    <link rel="stylesheet" href="Estilo/inicio.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap" rel="stylesheet">
+    <title>Bienvenido a Carnicería XYZ - Iniciar Sesión</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/06d08e46aa.js" crossorigin="anonymous"></script>
-
-    <style>
-        .btn-menu {
-            width: 100%;
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container">
-        <header class="text-center mt-4">
-            <h1 class="text-center p-3" style="color: #C20000;">Meats Master</h1>
-            <h1><i class="fas fa-cubes"></i> Gestion de Inventario</h1>
+
+    <div class="container mt-5">
+        <header class="text-center">
+            <h1>Carnicería Meats Master</h1>
         </header>
 
-        <h2 id="Fecha"></h2>
-
-        <div class="row mt-4">
-            <div class="col-md-4 offset-md-4">
-                <a class="btn btn-danger btn-menu" href="Vista/Producto/producto.php"><i class="fas fa-box"></i> Productos</a>
-                <a class="btn btn-danger btn-menu" href="Vista/Cliente/cliente.php"><i class="fas fa-users"></i> Clientes</a>
-                <a class="btn btn-danger btn-menu" href="Vista/Venta/venta.php"><i class="fas fa-cash-register"></i> Ventas</a>
-                <a class="btn btn-danger btn-menu" href="Vista/DetalleVenta/DetalleVenta.php"><i class="fas fa-cash-register"></i> Detalles de Ventas</a> 
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <!-- Formulario de inicio de sesión -->
+                <form action="controlador/Login/login.php" method="POST">
+                    <h2 class="mb-4">Iniciar sesión</h2>
+                    <!-- Campo de entrada para el nombre de usuario -->
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="usuario" placeholder="Nombre de usuario" required>
+                    </div>
+                    <!-- Campo de entrada para la contraseña -->
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" required>
+                    </div>
+                    <!-- Botón para enviar el formulario -->
+                    <button type="submit" class="btn btn-primary mt-2" name="login">
+                        <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+                    </button>
+                </form>
+                <!-- Enlace para redirigir al formulario de registro -->
+                <p class="mt-3">¿No tienes una cuenta? <a href="Vista/Login/registro.html">Regístrate aquí</a></p>
             </div>
         </div>
-    </div>
 
-    <footer class="text-center mt-5">
-        <p>Douglas Tabarquino &copy; 2023</p>
-    </footer>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
-
 </html>

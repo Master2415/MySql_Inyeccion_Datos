@@ -3,7 +3,7 @@
 // Validamos que el formulario y que el boton registro haya sido presionado
 if (!empty($_POST['btnRegistroProducto'])) {
     if (
-        !empty($_POST['codigo']) and
+        //!empty($_POST['codigo']) and
         !empty($_POST['nombreProducto']) and
         !empty($_POST['tipoProducto']) and
         !empty($_POST['cantProducto']) and
